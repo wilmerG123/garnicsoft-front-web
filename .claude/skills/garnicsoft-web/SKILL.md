@@ -75,7 +75,7 @@ Revisión visual del build: servir `dist/` (`python -m http.server 8787 -d dist`
 
 - Remoto: `https://github.com/wilmerG123/garnicsoft-front-web` · rama de producción: **`master`**.
 - **Cada push a `master` se publica en producción** (Vercel, integración Git). Trabaja en ramas `feat/…` o `fix/…`; Vercel genera una URL de vista previa por rama/PR. Fusiona a `master` solo lo verificado.
-- Config de Vercel en `vercel.json` (build `npx expo export --platform web`, salida `dist`). No subir `dist/`.
+- Config de Vercel en `vercel.json` (install `npm install`, no `npm ci`: en Vercel `npm ci` falla con el lockfile generado en Windows; build `npx expo export --platform web`, salida `dist`). No subir `dist/`.
 - Commits en español, en imperativo y breves: `feat: sección de contacto`, `fix: desborde en móvil`.
 - Dominio: **garnicsoft.com** (pendiente de compra). Hasta entonces se usa la URL `*.vercel.app`.
 - Nota: el plan Hobby de Vercel es para uso no comercial; para producción comercial evaluar Vercel Pro o un plan gratuito que permita uso comercial (Cloudflare Pages, Netlify). El build es estático y portable.
