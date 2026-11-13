@@ -13,12 +13,30 @@ export const company = {
 
 /** Datos de contacto: completar cuando existan. null = se muestra «Disponible pronto». */
 export const contact: Record<'phone' | 'email' | 'web' | 'office' | 'nit', string | null> = {
-  phone: null,
+  phone: '+57 313 485 8016',
   email: null, // p. ej. 'contacto@garnicsoft.com' cuando el dominio esté activo
   web: 'garnicsoft.com',
   office: null,
   nit: null,
 };
+
+/**
+ * Redes y canales. url = null → el ícono se muestra como «Próximamente» y no es clicable.
+ * Para activar uno, poner su URL completa (p. ej. 'https://instagram.com/garnicsoft' o 'mailto:contacto@garnicsoft.com').
+ */
+const WHATSAPP_NUMBER = '573134858016'; // +57 313 485 8016, sin «+» ni espacios (formato wa.me)
+const WHATSAPP_TEXT = 'Hola Garnicsoft, quiero información sobre sus servicios.';
+
+export type SocialId = 'whatsapp' | 'email' | 'facebook' | 'instagram';
+
+export const social: { id: SocialId; label: string; url: string | null }[] = [
+  { id: 'whatsapp', label: 'WhatsApp', url: `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_TEXT)}` },
+  { id: 'email', label: 'Correo', url: null },
+  { id: 'facebook', label: 'Facebook', url: null },
+  { id: 'instagram', label: 'Instagram', url: null },
+];
+
+export const whatsappUrl = social.find((s) => s.id === 'whatsapp')?.url ?? null;
 
 export const about = {
   title: 'Tecnología con criterio de negocio',

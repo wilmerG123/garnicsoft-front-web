@@ -34,6 +34,8 @@ Los tokens viven en `src/constants/brand.ts`. **Nunca** escribas un color o una 
 - **Prohibido inventar** cifras, clientes, testimonios, certificaciones, premios o casos de éxito. Dato pendiente = `null` en `site.ts` → la UI muestra «Disponible pronto».
 - Referencias normativas válidas (ya verificadas): Decreto 767 de 2022 (Gobierno Digital), Resolución 1519 de 2020 MinTIC (sedes electrónicas), Ley 1581 de 2012 (datos personales), Resolución 2710 de 2017 (IPv6). No agregar otras sin verificarlas.
 - Nombre: **Garnicsoft** (no «GarnicSoft»). Razón social: Garnicsoft S.A.S.
+- **Canales y redes** (`social` en `site.ts`, componentes en `src/components/social.tsx`): WhatsApp **+57 313 485 8016** (activo, `wa.me/573134858016` con mensaje prellenado), Correo, Facebook e Instagram con `url: null` → se muestran como «Próximamente» y no son clicables. Para activar uno, solo poner su URL en `site.ts`. El botón flotante `WhatsAppFab` y el CTA principal de la portada usan WhatsApp; si se quita el número, desaparecen/vuelven a «Hablemos de su proyecto» solos.
+- Íconos: `@expo/vector-icons` (FontAwesome). El verde `#25D366` se usa **solo** en el botón flotante de WhatsApp (color reconocible de la marca WhatsApp); fuera de eso, paleta Garnicsoft.
 
 ## 3. Estructura y código
 

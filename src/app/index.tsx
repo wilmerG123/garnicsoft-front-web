@@ -12,6 +12,7 @@ import {
   SiteHeader,
   type SectionId,
 } from '@/components/sections';
+import { WhatsAppFab } from '@/components/social';
 import { colors } from '@/constants/brand';
 import { company, privateSector, publicSector } from '@/content/site';
 
@@ -51,7 +52,10 @@ export default function Home() {
           <ContactSection />
         </View>
         <SiteFooter />
+        {/* espacio para que el botón flotante no tape el pie de página en móvil */}
+        <View style={{ height: 88, backgroundColor: colors.ink }} />
       </ScrollView>
+      <WhatsAppFab />
     </View>
   );
 }

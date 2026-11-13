@@ -1,9 +1,10 @@
 import { Image } from 'expo-image';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 
+import { SocialLinks, openExternal } from '@/components/social';
 import { Body, Button, Container, Eyebrow, H1, H2, H3, Square, isHovered } from '@/components/ui';
 import { colors, fonts, radius, space } from '@/constants/brand';
-import { about, company, contact, method, type Service } from '@/content/site';
+import { about, company, contact, method, whatsappUrl, type Service } from '@/content/site';
 import { useIsDesktop } from '@/hooks/use-is-desktop';
 
 export type SectionId = 'nosotros' | 'publico' | 'privado' | 'metodologia' | 'contacto';
@@ -53,7 +54,11 @@ export function Hero({ onNavigate }: { onNavigate: (id: SectionId) => void }) {
           <H1 style={{ fontSize: desktop ? 64 : 40, lineHeight: desktop ? 72 : 46, maxWidth: 820 }}>{company.tagline}</H1>
           <Body style={{ color: '#2A3011', fontSize: desktop ? 20 : 17, maxWidth: 620 }}>{company.summary}</Body>
           <View style={styles.row}>
-            <Button label="Hablemos de su proyecto" onPress={() => onNavigate('contacto')} />
+            {whatsappUrl ? (
+              <Button label="Escríbanos por WhatsApp" onPress={() => openExternal(whatsappUrl as string)} />
+            ) : (
+              <Button label="Hablemos de su proyecto" onPress={() => onNavigate('contacto')} />
+            )}
             <Button label="Ver servicios" variant="outline" onPress={() => onNavigate('publico')} />
           </View>
         </Container>
@@ -165,6 +170,10 @@ export function ContactSection() {
               <Text style={[styles.contactValue, !value && { color: '#9CA3AF' }]}>{value ?? 'Disponible pronto'}</Text>
             </View>
           ))}
+          <View style={{ gap: space.sm, paddingTop: space.sm }}>
+            <Text style={styles.contactLabel}>Canales</Text>
+            <SocialLinks tone="dark" showLabels />
+          </View>
         </View>
       </Container>
     </View>
@@ -176,6 +185,7 @@ export function SiteFooter() {
     <View style={{ backgroundColor: colors.ink, borderTopWidth: 1, borderTopColor: '#2A2D35', paddingVertical: space.lg }}>
       <Container style={[styles.row, { justifyContent: 'space-between', alignItems: 'center' }]}>
         <Image source={require('@/assets/images/logo-negativo.png')} style={{ width: 128, height: 36 }} contentFit="contain" accessibilityLabel="Garnicsoft" />
+        <SocialLinks tone="dark" />
         <Text style={{ fontFamily: fonts.body, fontSize: 14, color: colors.mutedOnDark }}>
           © {new Date().getFullYear()} {company.legalName}
           {contact.nit ? ` · NIT ${contact.nit}` : ''}
