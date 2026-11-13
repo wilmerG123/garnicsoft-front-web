@@ -1,18 +1,20 @@
 {
   "expo": {
-    "name": "web",
-    "slug": "web",
+    "name": "Garnicsoft",
+    "slug": "garnicsoft",
     "version": "1.0.0",
-    "orientation": "portrait",
+    "orientation": "default",
     "icon": "./assets/images/icon.png",
-    "scheme": "web",
-    "userInterfaceStyle": "automatic",
+    "scheme": "garnicsoft",
+    "userInterfaceStyle": "light",
     "ios": {
-      "icon": "./assets/expo.icon"
+      "bundleIdentifier": "com.garnicsoft.app",
+      "supportsTablet": true
     },
     "android": {
+      "package": "com.garnicsoft.app",
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
+        "backgroundColor": "#16181D",
         "foregroundImage": "./assets/images/android-icon-foreground.png",
         "backgroundImage": "./assets/images/android-icon-background.png",
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
@@ -20,17 +22,23 @@
       "predictiveBackGestureEnabled": false
     },
     "web": {
-      "output": "server",
-      "favicon": "./assets/images/favicon.png"
+      "output": "static",
+      "favicon": "./assets/images/favicon.png",
+      "name": "Garnicsoft",
+      "shortName": "Garnicsoft",
+      "lang": "es",
+      "themeColor": "#16181D",
+      "backgroundColor": "#FFFFFF"
     },
     "plugins": [
       "expo-router",
+      "expo-font",
       [
         "expo-splash-screen",
         {
-          "backgroundColor": "#208AEF",
+          "backgroundColor": "#16181D",
           "image": "./assets/images/splash-icon.png",
-          "imageWidth": 76
+          "imageWidth": 120
         }
       ]
     ],
